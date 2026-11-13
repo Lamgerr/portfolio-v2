@@ -1,0 +1,15 @@
+/* ===================================================
+   main.css  —  Entry-point stylesheet for Ayush's portfolio
+   Loads the original bundle (unchanged) + overrides
+   =================================================== */
+
+/* Original bundle — all layout, components, animations */
+@import url('/assets/bundles/44e353fbc257a5c9.css');
+
+/* ── Ayush custom overrides ──────────────────────────── */
+/* Override any tokens here if you want colour tweaks    */
+
+:root {
+  /* Status-pill dot colour (available = green) */
+  --dot-active: #22c55e;
+}
