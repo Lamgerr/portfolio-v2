@@ -16,9 +16,11 @@ export default defineConfig(async () => {
   process.env.WRANGLER_LOG_PATH ??= ".wrangler/logs";
   process.env.MINIFLARE_REGISTRY_PATH ??= ".wrangler/registry";
 
+  const sitesPluginPath = "./build/sites-vite-plugin";
+  const hostingConfigPath = "./.openai/hosting.json";
   const [{ sites }, hostingConfigModule, { cloudflare }] = await Promise.all([
-    import("./build/sites-vite-plugin"),
-    import("./.openai/hosting.json"),
+    import(/* @vite-ignore */ sitesPluginPath),
+    import(/* @vite-ignore */ hostingConfigPath),
     import("@cloudflare/vite-plugin"),
   ]);
 
