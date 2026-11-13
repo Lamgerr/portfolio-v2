@@ -605,7 +605,7 @@ function apply(i,st,hov){
   /* never exactly flat. While a card still has any 3D tilt Chrome treats it as a 3D layer: rastered once,
      then only scaled by the compositor, so hover is smooth. The moment rotateX hits 0 it becomes a flat
      2D layer and Chrome re-rasters it (screens, Washio's video and all) at every new hover scale, which is
-     the lag Aditya saw only once the cards were 100% laid. 0.05deg is invisible (about 0.25px on the edge). */
+     the lag Ayush saw only once the cards were 100% laid. 0.05deg is invisible (about 0.25px on the edge). */
   var tf=tfOf(st);
   if(tf!==lastTf[i]){cards[i].style.transform=tf;lastTf[i]=tf}
   /* at a steep tilt the card is nearly flat on the seat, so the shadow tightens
@@ -645,7 +645,7 @@ function remark(){
   /* hold on the table, then rise into the case studies */
   marks.l0=drop.offsetTop+vh*.92;
   marks.l1=cs.offsetTop+(cs.offsetHeight-vh)/2;
-  /* phones (Oct 23, Aditya: the cards went up with the table, then came back down into the row): there the stool's
+  /* phones (Oct 23, Ayush: the cards went up with the table, then came back down into the row): there the stool's
      stage lets go of the screen before the rise was due, so the cards rode the table up the screen first. The rise now
      starts the moment the stage lets go, and runs at an even pace, so the cards only ever move one way: up into the row. */
   var un=deckUnpin();marks.lin=un>marks.f1&&un<marks.l0;if(marks.lin)marks.l0=un;
@@ -703,7 +703,7 @@ var FI={
  user:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/>',
  pin:'<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>'};
 var veil=document.createElement("div");veil.className="focus-veil";veil.setAttribute("aria-hidden","true");
-veil.innerHTML='<div class="book"></div>';document.body.insertBefore(veil,rail);
+veil.innerHTML='<div class="book"></div>';if(rail&&rail.parentNode){rail.parentNode.insertBefore(veil,rail)}else{document.body.appendChild(veil)}
 var book=veil.firstChild;
 /* The "book" is real writing, not filler: it opens on the hovered project's own write-up —
    the gist and every case-study beat — and runs on into the other projects, like a page
@@ -1438,7 +1438,7 @@ function trkCompsHTML(){
 /* =================== ROUND 16: Washio assets, canvas, board, components =================== */
 var WSH={"wf_home": {"u": "/assets/media/170706fc3cb1e9e1.webp", "w": 480, "h": 1004}, "wf_search": {"u": "/assets/media/1e182d282d489f17.webp", "w": 480, "h": 1004}, "wf_results": {"u": "/assets/media/8e4770a13b353fec.webp", "w": 480, "h": 1004}, "wf_vendor": {"u": "/assets/media/fec98280e7dba919.webp", "w": 480, "h": 1004}, "wf_items": {"u": "/assets/media/f606c99a5e86cf0d.webp", "w": 480, "h": 1004}, "wf_checkout": {"u": "/assets/media/a73dc595eee4a712.webp", "w": 480, "h": 1007}, "wf_booked": {"u": "/assets/media/e52a59d452d6126e.webp", "w": 480, "h": 1007}, "wf_track": {"u": "/assets/media/bba6f0b800c60e69.webp", "w": 480, "h": 1007}, "wf_homeorder": {"u": "/assets/media/5d80be8a231e63aa.webp", "w": 480, "h": 1007}, "wf_profile": {"u": "/assets/media/b021e7f0f09fb171.webp", "w": 480, "h": 1007}, "wi_greet": {"u": "/assets/media/21b13c61d68133d6.webp", "w": 360, "h": 802}, "wi_outdel": {"u": "/assets/media/2ff6426e697b604b.webp", "w": 360, "h": 802}, "wi_vendor": {"u": "/assets/media/eb6c58fea02383b3.webp", "w": 360, "h": 753}, "wi_pay": {"u": "/assets/media/b70cd80abdab100a.webp", "w": 360, "h": 753}, "wi_map": {"u": "/assets/media/4d1e5f857c26b5b3.webp", "w": 360, "h": 724}, "wk_icons": {"u": "/assets/media/a65eca6181bb0392.webp", "w": 700, "h": 91}, "wk_bagbtn": {"u": "/assets/media/2f2ca247217ffdb7.webp", "w": 300, "h": 254}, "wk_kg": {"u": "/assets/media/9c978a011706cb14.webp", "w": 200, "h": 320}, "wk_pcs": {"u": "/assets/media/3c8ed4b8ee97c4ab.webp", "w": 180, "h": 342}, "wk_back": {"u": "/assets/media/69ac74c363dfe09d.webp", "w": 400, "h": 492}, "wk_3d": {"u": "/assets/media/dcc710bba0a45b62.webp", "w": 520, "h": 400}, "wl_0": {"u": "/assets/media/73b786e79d3c448e.webp", "w": 300, "h": 654}, "wl_1": {"u": "/assets/media/4906ead12797af31.webp", "w": 300, "h": 652}, "wl_2": {"u": "/assets/media/7428c17271c74085.webp", "w": 300, "h": 761}, "wl_3": {"u": "/assets/media/cd75d3d001bfdaf2.webp", "w": 300, "h": 651}, "wl_4": {"u": "/assets/media/6f68d4e9975a5172.webp", "w": 300, "h": 650}, "wl_5": {"u": "/assets/media/29c499968b57580c.webp", "w": 300, "h": 783}, "wl_6": {"u": "/assets/media/3f582f36cd2f2d99.webp", "w": 300, "h": 784}, "wl_7": {"u": "/assets/media/bd587bb57a877369.webp", "w": 300, "h": 907}, "wl_8": {"u": "/assets/media/d30d4d9ece0f9aa2.webp", "w": 300, "h": 651}, "ws_07": {"u": "/assets/media/99891306202e7aea.webp", "w": 480, "h": 681}, "ws_10": {"u": "/assets/media/07aabb81e86086ca.webp", "w": 480, "h": 675}, "ws_18": {"u": "/assets/media/8c579e2c71e42531.webp", "w": 443, "h": 695}, "ws_05": {"u": "/assets/media/385fbb2a5087e17d.webp", "w": 480, "h": 692}, "ws_16": {"u": "/assets/media/f20509a9f29314f1.webp", "w": 480, "h": 670}, "w_ia": {"u": "/assets/media/02a14dbc85129014.webp", "w": 1700, "h": 507}, "wa_item_shirt": {"u": "/assets/media/6f4dcc3d6c64518b.webp", "w": 140, "h": 140}, "wa_item_tshirt": {"u": "/assets/media/030e0b1c08244d19.webp", "w": 140, "h": 140}, "wa_item_jeans": {"u": "/assets/media/63311bb2d692897d.webp", "w": 140, "h": 140}, "wa_item_trousers": {"u": "/assets/media/5b8292f673e965d4.webp", "w": 140, "h": 140}, "wa_item_kurta": {"u": "/assets/media/34d2937a48c27548.webp", "w": 140, "h": 168}, "wv_home": {"u": "/assets/media/7d2e7268da6bdd4a.mp4"}, "wv_home_w": {"u": "/assets/media/0c5777bf16f59170.webm"}};
 var SITESHOT={"fxkit":{"u":"/assets/media/2e615ded45405f7a.webp","w":900,"h":464},"mistline":{"u":"/assets/media/a282272f7a8cf5fa.webp","w":900,"h":456}};
-Object.assign(ALT,SITESHOT); /* Aditya's two website screenshots, for the story canvas drop */
+Object.assign(ALT,SITESHOT); /* Ayush's two website screenshots, for the story canvas drop */
 Object.assign(ALT,WSH); /* one asset table: iterations, component sets and the board all read from ALT */
 ["ws_07","ws_10","ws_18","ws_05","ws_16"].forEach(function(k){CSK[k]=WSH[k].u});
 ACV.washio={html:function(p){
@@ -1897,8 +1897,8 @@ function reveal(){
   (typeof SECTIONS!=="undefined"?SECTIONS:[]).forEach(function(sct,i){var p=SPOTS[i%SPOTS.length];DEF.push({t:"set",s:i,x:p[0],y:p[1],w:sct.w,h:sct.h,r:p[2]})});
   DEF.push({t:"note",x:1290,y:-150,w:210,h:180,r:4,c:"#FFD44E",txt:"Tap a cover to open it. Drag anything around."});
   DEF.push({t:"note",x:1230,y:660,w:200,h:170,r:-3.5,c:"#B4F6B8",txt:"More gets pinned here as it ships."});
-  /* Aditya: design the canvas at #/canvas/edit, hit Export, and send me the file. It gets baked in here. */
-  /* baked from Aditya's canvas-layout_3.json (27 Sep): VANORGO, Carousel & Graphics, Archived websites, Asian Cadet Cup 2025 */
+  /* Ayush: design the canvas at #/canvas/edit, hit Export, and send me the file. It gets baked in here. */
+  /* baked from Ayush's canvas-layout_3.json (27 Sep): VANORGO, Carousel & Graphics, Archived websites, Asian Cadet Cup 2025 */
   var LAYOUT=[{"t":"text","x":-10,"y":-170,"w":980,"h":70,"r":0,"fs":64,"txt":"Everything else I've made."},{"t":"image","id":"vanorgo","label":"VANORGO","w":1024,"h":904,"r":0,"src":"/assets/media/0ddbd085e1f42fd5.webp","x":-1327,"y":95},{"t":"frame","w":1228,"h":1044,"r":0,"c":"#FFD44E","txt":"VANORGO","x":-1431,"y":48},{"t":"frame","w":1225,"h":1052,"r":0,"c":"#A9DEFF","txt":"Carousel & Graphics","x":-1419,"y":1381},{"t":"frame","w":1644,"h":2147,"r":0,"c":"#E7BBFF","txt":"Archived websites","x":245,"y":168},{"t":"image","id":"carousel-graphics","label":"Carousel & Graphics","w":1075,"h":953,"r":0,"src":"/assets/media/9939692f50a6f651.webp","x":-1354,"y":1425},{"t":"image","id":"archived-websites","label":"Archived websites","w":1793,"h":1899,"r":0,"src":"/assets/media/2cb2afc8c2c5b8c5.webp","x":80,"y":184},{"t":"frame","w":812,"h":478,"r":0,"c":"#B4F6B8","txt":"Asian Cadet Cup, 2025","x":1995,"y":161},{"t":"text","w":676,"h":40,"r":0,"fs":32,"txt":"Designed the Logo of the main event and Invitation Pdf which was sent to all the participating countries. ","x":2046,"y":214},{"t":"image","id":"asian-cadet-cup-2025","label":"Asian Cadet Cup, 2025","w":719,"h":236,"r":0,"src":"/assets/media/992e56fc72fbee5e.webp","x":2039,"y":332}],COVER=[["#FFD44E","#FFF3C4"],["#A9DEFF","#E3F4FF"],["#E7BBFF","#F6E9FF"],["#B4F6B8","#E5FBE6"],["#FFFFFF","#F1F0EC"]];
   /* the service pages borrow the canvas boards (no second copy): images whose centre sits inside the frame named n */
   window.CVBOARD=function(n){var L=LAYOUT||[],f=null;L.forEach(function(x){if(x.t==="frame"&&(x.txt||"").toLowerCase().indexOf(n.toLowerCase())===0)f=x});if(!f)return [];
@@ -1927,7 +1927,7 @@ function reveal(){
       var cats=(Array.isArray(d.categories)&&d.categories.length?d.categories:[d.category||"Graphics"]).map(String);
       return {slug:String(d.slug),title:String(d.title),description:d.description||"",category:cats[0],categories:cats,slides:slides,site:web,siteUrl:source(d.siteUrl),resourceUrl:source(d.resourceUrl),width:old&&!d.slides?.length&&!web?old.w:0,height:old&&!d.slides?.length&&!web?old.h:0,cover:source(d.cover)||slides[0].src,coverVideo:source(d.cover)?d.coverVideo===true:!!slides[0].video};
     }
-    /* a card (Oct 26, Aditya: no turn, no motion trail, no back): the picture with its caption under it. A click or a tap
+    /* a card (Oct 26, Ayush: no turn, no motion trail, no back): the picture with its caption under it. A click or a tap
        opens the viewer; with a mouse or trackpad it tilts under the pointer (see .gal-tilt). */
     var fine=matchMedia("(hover:hover) and (pointer:fine)"),still=matchMedia("(prefers-reduced-motion:reduce)");
     function card(d){var b=el("article","gal-card"),front=el("button","gal-tilt gal-open"),kind=d.site?"website":d.slides.length>1?"carousel":"image";
@@ -1954,7 +1954,7 @@ function reveal(){
       front.onclick=function(){originButton=front;pushed=true;var u=new URL(location.href);u.pathname="/gallery";u.search="?image="+encodeURIComponent(d.slug);u.hash="";history.pushState(null,"",u);open(d,0)};
       return b;
     }
-    /* Pinterest-style masonry (Oct 25, Aditya): as many ~260px columns as fit (two on a phone, up to five), and each
+    /* Pinterest-style masonry (Oct 25, Ayush): as many ~260px columns as fit (two on a phone, up to five), and each
        design, in order, drops into whichever column is shortest, so the wall fills left to right with no gaps */
     var made=Object.create(null),shown=[],cols=0;
     function columns(){var w=grid.clientWidth-(parseFloat(getComputedStyle(grid).paddingLeft)||0)*2;return Math.max(2,Math.min(5,Math.floor((w+16)/(260+16))))}
@@ -2142,7 +2142,7 @@ function reveal(){
     if(editing&&selIt&&e.target.classList.contains("fh")){o=selIt;mode="fresize";st0={o:o,x:e.clientX,y:e.clientY,h:e.target.dataset.h,d:{x:o.d.x,y:o.d.y,w:o.d.w,h:o.d.h}};return}
     if(o&&editing&&e.target.classList.contains("rs")){mode="resize";st0={o:o,x:e.clientX,y:e.clientY,w:o.d.w,h:o.d.h};return}
     if(o&&editing&&e.target.classList.contains("rt")){mode="rotate";var r=o.el.getBoundingClientRect();st0={o:o,cx:r.left+r.width/2,cy:r.top+r.height/2};return}
-    /* touch: a drag on an item pans the canvas unless that item was tapped first (Aditya: trying to move around the
+    /* touch: a drag on an item pans the canvas unless that item was tapped first (Ayush: trying to move around the
        canvas on a phone kept moving the pictures instead). Tap selects it; the next drag on it moves it. */
     if(o&&e.pointerType==="touch"&&selIt!==o){moved=0;mode="pan";st0={x:e.clientX,y:e.clientY,vx:V.x,vy:V.y,tap:o,cov:e.target.closest(".cover")};return}
     if(o){mode="item";var kids=o.d.t==="frame"?items.filter(function(q){return q!==o&&(q.d.t!=="frame"||q.d.w*q.d.h<o.d.w*o.d.h)&&inside(q,o)}).map(function(q){return{q:q,x:q.d.x,y:q.d.y}}):[];
@@ -2301,7 +2301,7 @@ function reveal(){
   /* ---- hero: the doodles land where they look best; after that they're yours to move ---- */
   /* the hero reads like a story, left to right, top to bottom: he thinks, he builds ("cooking something crazy"),
      he checks every pixel, he ships. The screenshot-approved default positions are fixed on every visit and
-     nothing ever sits on the words. Anchors come from Aditya's reference screenshot, as fractions of the screen. */
+     nothing ever sits on the words. Anchors come from Ayush's reference screenshot, as fractions of the screen. */
   var STORY=[["think",.165,.22,"L"],["laptop",.75,.26,"R"],["pixel",.088,.665,"L"],["plane",.864,.65,"R"]];
   var box=$("#heroIn");
   function curate(){if(!box||box.closest(".hero-editorial")||innerWidth<760)return;var hero=$("#hero");if(!hero||!hero.offsetParent)return;
@@ -2536,7 +2536,7 @@ var APK=(function(){
     if(!n){err.textContent="Add your name so I know who’s asking.";f.elements.n.focus();return}
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)){err.textContent="That email doesn’t look right.";f.elements.e.focus();return}
     err.textContent="";
-    var body="Hi Aditya,\n\nI'd like to try "+(window.APKAPP||"Alter")+".\n\nName: "+n+"\nEmail: "+m+(f.elements.d.value.trim()?"\nPhone: "+f.elements.d.value.trim():"")+(f.elements.w.value.trim()?"\n\nWhat I want to use it for:\n"+f.elements.w.value.trim():"");
+    var body="Hi Ayush,\n\nI'd like to try "+(window.APKAPP||"Alter")+".\n\nName: "+n+"\nEmail: "+m+(f.elements.d.value.trim()?"\nPhone: "+f.elements.d.value.trim():"")+(f.elements.w.value.trim()?"\n\nWhat I want to use it for:\n"+f.elements.w.value.trim():"");
     location.href="mailto:ayushraj.design@gmail.com?subject="+encodeURIComponent((window.APKAPP||"Alter")+" APK request from "+n)+"&body="+encodeURIComponent(body);
     f.classList.add("sent")});
   document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-apk]");if(b){e.preventDefault();open()}});
@@ -2805,7 +2805,7 @@ window.wshWire=wshWire;
   window.addEventListener("scroll",q,{passive:true});window.addEventListener("resize",q);window.addEventListener("hashchange",function(){setTimeout(chk,80)});chk()})();
 /* =================== ROUND 19: Hourbit =================== */
 /* assets: hb_ screens rebuilt from the Compose source (Neon Green, sample data), hb_v1 = screenshots of
-   the first build on Aditya's phone, hb_widget = screenshot of the real widget, hbw_ = wireframes (SVG) */
+   the first build on Ayush's phone, hb_widget = screenshot of the real widget, hbw_ = wireframes (SVG) */
 var HBT={"hb_home":{"u":"/assets/media/84d8b5b1b6362e2a.webp","w":480,"h":1039},"hb_homerun":{"u":"/assets/media/7d8381d7174aab24.webp","w":480,"h":1039},"hb_themes":{"u":"/assets/media/b1c45f2659e608c7.webp","w":480,"h":1039},"hb_day":{"u":"/assets/media/c5cefb1fdf3f8b85.webp","w":480,"h":1039},"hb_focus":{"u":"/assets/media/864404a0aff006ca.webp","w":480,"h":1039},"hb_paused":{"u":"/assets/media/f361e9bd0787f0cb.webp","w":480,"h":1039},"hb_v1home":{"u":"/assets/media/d505dcdb5641a10d.webp","w":480,"h":987},"hb_v1focus":{"u":"/assets/media/cba92cb2901e08a1.webp","w":480,"h":987},"hb_v1theme":{"u":"/assets/media/d88d5ff119aaf579.webp","w":480,"h":987},"hb_widget":{"u":"/assets/media/279f66bdd7c333a6.webp","w":360,"h":360},"hbw_home":{"u":"/assets/media/30be2a5283d4d246.svg","w":240,"h":520},"hbw_timer":{"u":"/assets/media/7652fce3bb676f83.svg","w":240,"h":520},"hbw_themes":{"u":"/assets/media/bdb4e2b8a53a9570.svg","w":240,"h":520},"hbw_day":{"u":"/assets/media/d34c001c9bab7e53.svg","w":240,"h":520},"hbw_widget":{"u":"/assets/media/8b4265f305590cfc.svg","w":240,"h":270}};
 Object.assign(ALT,HBT);
 ["hbw_home","hbw_timer","hbw_themes","hbw_day","hbw_widget"].forEach(function(k){CSK[k]=HBT[k].u});
@@ -3004,7 +3004,7 @@ CS.hourbit={
     var card=n.closest("a");if(card)card.addEventListener("mouseleave",function(){set(false)})})})();
 /* About: the dock. Desktop magnifies under the cursor: icon centres are measured once per hover (scaling never moves
    the layout), each frame eases every icon toward its target scale and shifts its neighbours by half the extra width,
-   and the shelf stretches with one scaleX. Clicking an app (any device) opens one shared card saying how Aditya uses it:
+   and the shelf stretches with one scaleX. Clicking an app (any device) opens one shared card saying how Ayush uses it:
    below the icon on desktop, as a full grid row in its place on phones, where the other icons glide to their new
    spots (FLIP, transform only). Escape, the close button or a click outside closes it. */
 (function(){var d=document.querySelector(".dock");if(!d)return;
@@ -3108,7 +3108,7 @@ function twCard(t,i){
 (function(){
   var sec=document.getElementById("proofHome"),stage=document.getElementById("twStage");if(!sec||!stage)return;
   var CMS="https://cms.ayushraj.dev",cards=[],items=[];
-  /* Oct 23, Aditya: most people are shown open, as cards; only once there are many do the rest fold down to their
+  /* Oct 23, Ayush: most people are shown open, as cards; only once there are many do the rest fold down to their
      photo tile, which opens in place when tapped. November 4: small desktop sets use readable rows and phones use an aligned column. Larger desktop sets
      stay scattered, and visitors can still pick up and drag any card. Nothing ever
      overlaps: after a drag, an open or a fold, the others are nudged out of the way (left/top animate). */
@@ -3186,7 +3186,7 @@ function twCard(t,i){
   var rt=0;addEventListener("resize",function(){clearTimeout(rt);rt=setTimeout(layout,120)});
   window.twDebug={state:function(){return cards.map(function(c){var r=c.getBoundingClientRect();return {open:c.classList.contains("open"),x:r.left,y:r.top,w:r.width,h:r.height,s:+c.style.getPropertyValue("--s")}})}};
   load()})();
-/* the testimonial form (/testimonial?k=code, Oct 23). Aditya makes the link in the CMS and sends it; what people
+/* the testimonial form (/testimonial?k=code, Oct 23). Ayush makes the link in the CMS and sends it; what people
    write goes to the CMS as Pending and only reaches the site once he approves it. */
 (function(){
   var form=document.getElementById("tmForm");if(!form)return;
@@ -3195,7 +3195,7 @@ function twCard(t,i){
   function code(){return (new URLSearchParams(location.search).get("k")||"").trim()}
   function refresh(){drawPrev()}
   function say(t){msg.textContent=t||""}
-  function check(){if(!/^#\/testimonial/.test(HASH()))return;var ok=!!code();form.classList.toggle("closed",!ok);say(ok?"":"This page opens from the link Aditya sends you. Ask him for yours and it will work from there.")}
+  function check(){if(!/^#\/testimonial/.test(HASH()))return;var ok=!!code();form.classList.toggle("closed",!ok);say(ok?"":"This page opens from the link Ayush sends you. Ask him for yours and it will work from there.")}
   window.addEventListener("hashchange",check);check();
   function tally(){var n=quote.value.trim().length;count.textContent=n+" / 800";count.classList.toggle("short",n>0&&n<20)}
   /* the preview: their card, open, as it will sit on the site, redrawn as they type, pick a colour or add a photo */
@@ -3240,7 +3240,7 @@ function twCard(t,i){
     try{var r=await fetch(CMS+"/api/testimonials/submit",{method:"POST",body:fd,signal:ctl.signal}),j={};try{j=await r.json()}catch(x){}
       if(!r.ok)throw Error(j.error||"Something went wrong. Please try again in a minute.");
       form.hidden=true;document.getElementById("tmLede").hidden=true;done.hidden=false;done.focus()}
-    catch(err){say(err.name==="AbortError"?"That's taking too long. Check your connection and press send again; nothing was lost.":err.name==="TypeError"?"Couldn't reach Aditya's studio. Check your connection and try again.":err.message)}
+    catch(err){say(err.name==="AbortError"?"That's taking too long. Check your connection and press send again; nothing was lost.":err.name==="TypeError"?"Couldn't reach Ayush's studio. Check your connection and try again.":err.message)}
     finally{clearTimeout(tm);send.disabled=false;send.firstChild.textContent=label}});
 })();
 function route(){
@@ -3272,28 +3272,28 @@ function route(){
   if(key==="home"){onHome=true;deck.classList.add("live");hint.style.display="";litCount=-1;
     requestAnimationFrame(function(){measure();remark();render()})}
   if(key==="canvas"){requestAnimationFrame(fitAll)}
-  /* tab titles, Aditya's wording. Google only indexes the home URL (hash routes), so these are for tabs,
+  /* tab titles, Ayush's wording. Google only indexes the home URL (hash routes), so these are for tabs,
      bookmarks and history */
-  var TT={home:"Aditya · UI/UX & Visual Designer",work:"Aditya's work",about:"About Aditya",
-    offer:"Aditya's services",canvas:"Aditya's canvas",gallery:"Aditya's gallery",lab:"Aditya's lab",contact:"Talk to Aditya",testimonial:"A few words for Aditya"},tt=TT[key];
-  if(key==="case"){var pc=P.filter(function(x){return x.id===parts[1]})[0];tt=(pc?pc.n+" · ":"")+"Aditya's work"}
+  var TT={home:"Ayush · UI/UX & Visual Designer",work:"Ayush's work",about:"About Ayush",
+    offer:"Ayush's services",canvas:"Ayush's canvas",gallery:"Ayush's gallery",lab:"Ayush's lab",contact:"Talk to Ayush",testimonial:"A few words for Ayush"},tt=TT[key];
+  if(key==="case"){var pc=P.filter(function(x){return x.id===parts[1]})[0];tt=(pc?pc.n+" · ":"")+"Ayush's work"}
   if(key==="svc"){var so=(typeof OFFER!=="undefined"?OFFER:[]).filter(function(o){return o.id===parts[1]})[0];
-    tt=(so?so.h.replace(/&amp;/g,"&")+" · ":"")+"Aditya's services"}
+    tt=(so?so.h.replace(/&amp;/g,"&")+" · ":"")+"Ayush's services"}
   document.title=tt||TT.home;
   /* per page description and canonical: each path is its own page to Google now (real URLs, see HASH()) */
-  var DD={home:"Aditya builds full-stack products, backend systems, and cloud infrastructure — from rough idea to production-ready code.",
+  var DD={home:"Ayush builds full-stack products, backend systems, and cloud infrastructure — from rough idea to production-ready code.",
     work:"Full-stack products: Automated Job Application System, Graph Node Classification, and PyOS. Built with React, Node.js, Python, TensorFlow, and more.",
-    about:"Aditya · Full-Stack Developer & System Architect. Computer science background, shipping web products, APIs, and cloud infrastructure.",
-    offer:"Full-stack web development, API & backend systems, DevOps & cloud infrastructure, and technical consulting, by Aditya.",
-    canvas:"A working canvas of Aditya's projects, architecture diagrams, and system designs.",
-    gallery:"Browse Aditya's projects, technical architectures, and development work.",
-    lab:"Explore experiments, prototypes, and technical implementations by Aditya.",
-    contact:"Get in touch with Aditya, Full-Stack Developer & System Architect, or find him on GitHub and Instagram.",
-    alter:"Alter case study: a personal AI assistant for Android, designed and built by Aditya. Problem, personas, sketches, components, decisions.",
-    "track-it":"Track It case study: an expense tracker for Android with voice entry, designed and built by Aditya in Kotlin and Jetpack Compose.",
-    washio:"Washio case study: a laundry service app, designed end to end by Aditya as a full Figma prototype, down to every state.",
-    parchi:"Parchi case study: a voice billing app for Indian kirana stores, designed and built by Aditya in Kotlin and Jetpack Compose.",
-    hourbit:"Hourbit case study: a focus timer for Android with a pixel hourglass and a focus heatmap, designed and built by Aditya."},
+    about:"Ayush · Full-Stack Developer & System Architect. Computer science background, shipping web products, APIs, and cloud infrastructure.",
+    offer:"Full-stack web development, API & backend systems, DevOps & cloud infrastructure, and technical consulting, by Ayush.",
+    canvas:"A working canvas of Ayush's projects, architecture diagrams, and system designs.",
+    gallery:"Browse Ayush's projects, technical architectures, and development work.",
+    lab:"Explore experiments, prototypes, and technical implementations by Ayush.",
+    contact:"Get in touch with Ayush, Full-Stack Developer & System Architect, or find him on GitHub and Instagram.",
+    alter:"Alter case study: a personal AI assistant for Android, designed and built by Ayush. Problem, personas, sketches, components, decisions.",
+    "track-it":"Track It case study: an expense tracker for Android with voice entry, designed and built by Ayush in Kotlin and Jetpack Compose.",
+    washio:"Washio case study: a laundry service app, designed end to end by Ayush as a full Figma prototype, down to every state.",
+    parchi:"Parchi case study: a voice billing app for Indian kirana stores, designed and built by Ayush in Kotlin and Jetpack Compose.",
+    hourbit:"Hourbit case study: a focus timer for Android with a pixel hourglass and a focus heatmap, designed and built by Ayush."},
     dd=key==="case"?DD[parts[1]]:key==="svc"?(tt+". "+DD.offer):DD[key],
     canon=""+(HASH().replace(/^#/,"")==="/"?"/":HASH().replace(/^#/,""));
   function meta(sel,attr,v){var m=document.head.querySelector(sel);if(m&&v)m.setAttribute(attr,v)}
@@ -3347,8 +3347,8 @@ measure();route();queueFrame();
 })();
 /* =================== ROUND 22: interactions (batch 1) ===================
    Ported from ayushraj-dev/portfolio (read-only reference), filtered to
-   Aditya's keep list. Held back for follow-ups, not in this batch:
-   - 20 slingshot: built, then removed entirely at Aditya's call (Sept 27). Don't bring it back.
+   Ayush's keep list. Held back for follow-ups, not in this batch:
+   - 20 slingshot: built, then removed entirely at Ayush's call (Sept 27). Don't bring it back.
    - 22 print CV: waiting on the new work timeline copy.
    - 27 Parchi live demo: waiting on Parchi's real screens/logic.
    - 2,5,8,12,13(tab title),15,18,21,25,28,29,30,31: cut, see CLAUDE.md. */
@@ -3511,7 +3511,7 @@ measure();route();queueFrame();
           return '<span class="tone-word'+(bz?' bz':'')+'" style="--i:'+(i++)+'">'+esc(clean)+'</span>'}).join(" ")}
       n.textContent=T[k][1];n.classList.toggle("ok",k<2);if(k===3)found("tone")})})();
 
-  /* 9 (words ink in as you read) removed Sept 28 at Aditya's call: the grey to black fill read as jitter */
+  /* 9 (words ink in as you read) removed Sept 28 at Ayush's call: the grey to black fill read as jitter */
 
   /* ============ 11. the footer line falls over when you knock it ============ */
   (function(){var sp=$$(".foot-in > span").filter(function(s){return /Built in code/.test(s.textContent)})[0];if(!sp)return;
@@ -3629,7 +3629,7 @@ measure();route();queueFrame();
   window.hgCmd=function(k){if(k==="layers"&&layers){layers.toggle();return true}return false};
 
   /* ============ 19. favicon: static, the nav's own Nerdy Designer glasses mark ============
-     Not the scroll-position minimap from the source repo — Aditya asked for a fixed icon,
+     Not the scroll-position minimap from the source repo — Ayush asked for a fixed icon,
      the same glasses SVG that's already in .nav .logo, redrawn onto a small canvas. */
   (function(){var link=document.querySelector("link[rel~='icon']");if(!link){link=document.createElement("link");link.rel="icon";document.head.appendChild(link)}
     var src=$(".nav .logo svg");if(!src)return;
@@ -3681,7 +3681,7 @@ measure();route();queueFrame();
     document.body.appendChild(el);var stage=$(".pz-stage",el),list=[],i=0,open=false,fs=false,tx=null;
     function clean(n){$$("[id]",n).forEach(function(x){x.removeAttribute("id")});n.removeAttribute&&n.removeAttribute("id");$$(".rv,.nz",n).forEach(function(x){x.classList.add("in")});return n}
     function build(){var p=projOf();list=[];if(!p)return;var body=$("#caseBody");
-      var t=document.createElement("div");t.className="pz-title";t.innerHTML='<span class="k">'+esc(p.t)+'</span><h1>'+esc(p.n)+'</h1><p>'+esc(String(p.g).replace(/<[^>]+>/g,""))+'</p><p class="by">Aditya</p>';list.push(t);
+      var t=document.createElement("div");t.className="pz-title";t.innerHTML='<span class="k">'+esc(p.t)+'</span><h1>'+esc(p.n)+'</h1><p>'+esc(String(p.g).replace(/<[^>]+>/g,""))+'</p><p class="by">Ayush</p>';list.push(t);
       var secs=$$(".cs-sec",body);
       if(secs.length){secs.forEach(function(s){list.push(clean(s.cloneNode(true)))});var cta=$(".cs-cta",body);if(cta)list.push(clean(cta.cloneNode(true)))}
       else{$$(".step",body).forEach(function(s){list.push(clean(s.cloneNode(true)))})}
@@ -4089,7 +4089,7 @@ if(/^#\/work\/parchi/.test(HASH())&&typeof route==="function")route();
     c.querySelector(".card-top").appendChild(cov)})})();
 /* =================== ROUND 20: service pages (#/offer/<id>) and the service previews ===================
    Every picture here is read from the case studies' own asset tables (ALT, which carries TRK, WSH and HBT)
-   and Parchi's pcImg(). Nothing new is embedded. Graphic design and Brand identity wait for Aditya's imagery. */
+   and Parchi's pcImg(). Nothing new is embedded. Graphic design and Brand identity wait for Ayush's imagery. */
 (function(){
   var PJ={alter:["Alter","#FFD44E"],"track-it":["Track It","#B4F6B8"],washio:["Washio","#A9DEFF"],hourbit:["Hourbit","#98FF53"],parchi:["Parchi","#E7BBFF"]};
   function img(k,alt){var a=ALT[k];return '<img alt="'+alt+'" draggable="false" src="'+a.u+'">'}
@@ -4104,7 +4104,7 @@ if(/^#\/work\/parchi/.test(HASH())&&typeof route==="function")route();
       return F.map(function(f,i){return '<span class="svp-f" style="--fb:'+f[2]+';--dur:'+(F.length*1.6)+'s;--dl:'+(i*1.6)+'s">'+(f[0]==="pc"?pcImg("home","",""):img(f[0],""))+'<em>'+f[1]+' · home screen</em></span>'}).join("")}
     if(o.id==="systems"){var sy=sysOf("alter");return '<span class="svp-sw">'+sy.colors.slice(0,8).map(function(c,k){return '<i style="background:'+c[0]+';--k:'+k+'"></i>'}).join("")+'</span><em>Alter · colour tokens</em>'}
     if(o.id==="motion")return vid()+'<em>Washio · prototype, home</em>';
-    /* graphic design: Aditya's own posts, one at a time, as tilted cards like the UI/UX screens */
+    /* graphic design: Ayush's own posts, one at a time, as tilted cards like the UI/UX screens */
     if(o.id==="graphic")return GFXP.map(function(f,i){return '<span class="svp-f svp-p" style="--fb:'+o.pc+';--dur:'+(GFXP.length*1.6)+'s;--dl:'+(i*1.6)+'s"><img alt="" draggable="false" src="'+f[0]+'"><em>'+f[1]+'</em></span>'}).join("");
     var B=o.id==="brand"?[["VANORGO","VANORGO · identity"],["Asian Cadet Cup","Asian Cadet Cup · logo"]]:o.id==="graphic"?[["Carousel","Carousels & graphics"],["Asian Cadet Cup","Asian Cadet Cup 2025 · invitation"]]:[];
     var S=[];B.forEach(function(b){var im=window.CVBOARD?CVBOARD(b[0])[0]:null;if(im)S.push([im.src,b[1]])});
@@ -4257,17 +4257,17 @@ if(/^#\/work\/parchi/.test(HASH())&&typeof route==="function")route();
    if(innerWidth<=600&&list.length===6){var phoneSlots=[[.02,0,.60],[.73,38,.21],[.02,lastRow,.8],[.36,secondRow+15,.60],[.05,secondRow,.21],[.6,lastRow+24,.74]],pos=phoneSlots[i];w=type==='comp'?Math.min(pos[2]*W,cw(d)):pos[2]*W;x=offset+pos[0]*W;if(type==='comp')x=Math.max(4,Math.min(x,L.width-cw(d)-6));y=pos[1];rotation=[-3,3,-2,2,-3,3][i]}
    else if(small&&list.length===6){var pos=compact[i];w=type==='comp'?cw(d):pos[2]*W;x=offset+pos[0]*W;y=pos[1]*W}
    else if(small){w=Math.min(W*(type==='app'?.19:.28),type==='app'?84:144);var gap=W*.05,total=list.reduce(function(sum,item){return sum+Math.min(W*(item[0]==='app'?.19:.28),item[0]==='app'?84:144)},0)+gap*(list.length-1);x=offset+(W-total)/2;for(var j=0;j<i;j++)x+=Math.min(W*(list[j][0]==='app'?.19:.28),list[j][0]==='app'?84:144)+gap;y=30+i%2*24}
-   else{/* Aditya's own arrangement (Oct 23): FXKIT left of the paragraph, Washio low right, the laptop doodle beside the name, Mistline high right, Alter top left, the paper plane under the paragraph */
+   else{/* Ayush's own arrangement (Oct 23): FXKIT left of the paragraph, Washio low right, the laptop doodle beside the name, Mistline high right, Alter top left, the paper plane under the paragraph */
     var slots=list.length===6?[[.031,P.top-R.top+1],[.838,P.bottom-R.top-53],[.646,F.top-R.top+37],[.803,F.top-R.top-30],[.18,19],[.276,P.bottom-R.top+10]]:[[.015,P.top-R.top-60],[.85,P.bottom-R.top-28],[.04,P.bottom-R.top-26]];x=R.width*slots[i][0];y=slots[i][1]}
    el.style.setProperty('--x',Math.round(x)+'px');el.style.setProperty('--y',Math.round(y)+'px');el.style.setProperty('--w',Math.round(w)+'px');el.style.setProperty('--r',rotation+'deg');
    var h=type==='app'?w*1039/480:type==='site'?w/1.94+14:type==='comp'?(DOO[d[1]]?w*1.1:60):w*2.9/4.6,origin=buttons.find(function(b){return b.dataset.group===active})||buttons[0],B=origin.getBoundingClientRect();
    el.style.setProperty('--seed',Math.min(1,48/w,30/h));el.style.setProperty('--hx',Math.round(B.left+B.width/2-L.left-w/2)+'px');el.style.setProperty('--hy',Math.round(B.top+B.height/2-L.top-h/2)+'px')});
  }
- /* Two of Aditya's doodles balance the spread (Oct 23; they replaced Alter's nav bar and Washio's add to bag, which he
+ /* Two of Ayush's doodles balance the spread (Oct 23; they replaced Alter's nav bar and Washio's add to bag, which he
     felt didn't belong). The Alter and Washio component code below stays for their case studies. */
  var DOO={laptop:root.querySelector('.doo[data-dd=laptop]'),plane:root.querySelector('.doo[data-dd=plane]')};
  function micro(kind){var box=document.createElement('div');box.className='hero-mi mi-'+kind;
-  /* Aditya's own doodles (Oct 23): the one at the laptop and the one throwing a paper plane, with their own motion */
+  /* Ayush's own doodles (Oct 23): the one at the laptop and the one throwing a paper plane, with their own motion */
   if(DOO[kind]){var o=DOO[kind];o.classList.remove('d1','d4');o.removeAttribute('style');box.appendChild(o);return box}
   if(kind==='alter'){box.innerHTML='<div class="np" role="tablist" aria-label="Alter nav bar">'+[["home","Home"],["mem","Memories"],["up","Upcoming"],["note","Notes"]].map(function(t,i){return '<button type="button" role="tab" aria-selected="'+(i?'false':'true')+'" class="'+(i?'':'act')+'">'+ic(t[0])+'<span class="lb">'+t[1]+'</span></button>'}).join("")+'</div>'}
   else{var q=0;box.innerHTML='<ul class="wsh-items"><li><img alt="" src="'+ALT.wa_item_shirt.u+'"><span class="wsh-it"><b>Shirt</b><em>₹7/pcs</em></span><span class="wsh-add"><button type="button" class="wsh-a">Add +</button><span class="wsh-st"><button type="button" class="wsh-m" aria-label="One less">−</button><output>1</output><button type="button" class="wsh-p" aria-label="One more">+</button></span></span></li></ul>';
@@ -4326,7 +4326,7 @@ if(/^#\/work\/parchi/.test(HASH())&&typeof route==="function")route();
 
 })();
 /* =================== FOOTER: the sky ===================
-   An ASCII sky behind the contact panel (Oct 21, from Aditya's direction after the koi): a fine grid of square cells
+   An ASCII sky behind the contact panel (Oct 21, from Ayush's direction after the koi): a fine grid of square cells
    where clouds drift, paper planes fly and leave contrails, and his tools float past: laptops, </> brackets and pen
    nibs. Each object is a real icon outline drawn into a small offscreen canvas, two pixels per cell, and read back per
    cell: well covered cells become tiles in the object's colour (the four pillar colours) with a dense glyph, thin edges

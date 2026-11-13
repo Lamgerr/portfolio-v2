@@ -703,7 +703,7 @@ var FI={
  user:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/>',
  pin:'<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>'};
 var veil=document.createElement("div");veil.className="focus-veil";veil.setAttribute("aria-hidden","true");
-veil.innerHTML='<div class="book"></div>';document.body.insertBefore(veil,rail);
+veil.innerHTML='<div class="book"></div>';if(rail&&rail.parentNode){rail.parentNode.insertBefore(veil,rail)}else{document.body.appendChild(veil)}
 var book=veil.firstChild;
 /* The "book" is real writing, not filler: it opens on the hovered project's own write-up —
    the gist and every case-study beat — and runs on into the other projects, like a page
