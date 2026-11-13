@@ -4,7 +4,7 @@ import { portfolioBody } from "./portfolio-body";
 export default function Home() {
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: portfolioBody }} />
+      <div style={{ display: "contents" }} dangerouslySetInnerHTML={{ __html: portfolioBody }} />
       <Script src="/assets/bundles/app.adapted.js" strategy="afterInteractive" />
     </>
   );
