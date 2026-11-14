@@ -1772,8 +1772,8 @@ function reveal(){
   /* ---- copy email, with a toast ---- */
   var toast=document.getElementById("toast"),tt=0;
   function bindCopy(){Array.prototype.forEach.call(document.querySelectorAll(".socials a"),function(a){if(!/Email/.test(a.textContent)||a.dataset.copy)return;
-    a.dataset.copy="1";a.setAttribute("href","mailto:ayushraj.design@gmail.com");
-    a.addEventListener("click",function(e){e.preventDefault();var m="ayushraj.design@gmail.com";
+    a.dataset.copy="1";a.setAttribute("href","mailto:adi.workspace76865@gmail.com");
+    a.addEventListener("click",function(e){e.preventDefault();var m="adi.workspace76865@gmail.com";
       (navigator.clipboard?navigator.clipboard.writeText(m):Promise.reject()).catch(function(){}).then(function(){});
       clearTimeout(tt);toast.classList.add("on");tt=setTimeout(function(){toast.classList.remove("on")},1800);
       var r=a.getBoundingClientRect();if(window.CV_RIPPLE)window.CV_RIPPLE(r.left+r.width/2,r.top+r.height/2)})})}
@@ -2523,7 +2523,7 @@ var APK=(function(){
     '<button type="submit" class="btn apk-go">Request the APK '+ARW+'</button>'+
     '<div class="apk-ok"><span class="apk-tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><h3>Your request is ready</h3>'+
     '<p>Your mail app should be open with everything filled in. Hit send there and I’ll reply with the APK.</p>'+
-    '<p class="apk-small">Mail app didn’t open? Write to <a href="mailto:ayushraj.design@gmail.com?subject=Alter%20APK%20request">ayushraj.design@gmail.com</a></p>'+
+    '<p class="apk-small">Mail app didn’t open? Write to <a href="mailto:adi.workspace76865@gmail.com?subject=Alter%20APK%20request">adi.workspace76865@gmail.com</a></p>'+
     '<button type="button" class="btn ghost apk-close">Close</button></div></form>';
   document.body.appendChild(el);
   var f=el.querySelector("form"),err=el.querySelector(".apk-err"),back=null;
@@ -2537,7 +2537,7 @@ var APK=(function(){
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)){err.textContent="That email doesn’t look right.";f.elements.e.focus();return}
     err.textContent="";
     var body="Hi Ayush,\n\nI'd like to try "+(window.APKAPP||"Alter")+".\n\nName: "+n+"\nEmail: "+m+(f.elements.d.value.trim()?"\nPhone: "+f.elements.d.value.trim():"")+(f.elements.w.value.trim()?"\n\nWhat I want to use it for:\n"+f.elements.w.value.trim():"");
-    location.href="mailto:ayushraj.design@gmail.com?subject="+encodeURIComponent((window.APKAPP||"Alter")+" APK request from "+n)+"&body="+encodeURIComponent(body);
+    location.href="mailto:adi.workspace76865@gmail.com?subject="+encodeURIComponent((window.APKAPP||"Alter")+" APK request from "+n)+"&body="+encodeURIComponent(body);
     f.classList.add("sent")});
   document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-apk]");if(b){e.preventDefault();open()}});
   return {open:open}})();
@@ -3685,7 +3685,7 @@ measure();route();queueFrame();
       var secs=$$(".cs-sec",body);
       if(secs.length){secs.forEach(function(s){list.push(clean(s.cloneNode(true)))});var cta=$(".cs-cta",body);if(cta)list.push(clean(cta.cloneNode(true)))}
       else{$$(".step",body).forEach(function(s){list.push(clean(s.cloneNode(true)))})}
-      var end=document.createElement("div");end.className="pz-title";end.innerHTML='<span class="k">Thanks</span><h1>Questions?</h1><p>ayushraj.design@gmail.com</p>';list.push(end);
+      var end=document.createElement("div");end.className="pz-title";end.innerHTML='<span class="k">Thanks</span><h1>Questions?</h1><p>adi.workspace76865@gmail.com</p>';list.push(end);
       el.style.setProperty("--pz",p.s)}
     function fit(s){var inn=s.firstChild;inn.style.transform="";var H=stage.clientHeight-40,h=inn.scrollHeight;if(h>H){var k=Math.max(.62,H/h);inn.style.transform="scale("+k+")";inn.style.marginBottom=(-(1-k)*h)+"px"}}
     function show(k,dir){if(!list.length)return;i=Math.max(0,Math.min(list.length-1,k));var old=$(".pz-s",stage);if(old)old.remove();
@@ -4056,7 +4056,7 @@ CS.parchi={
    {h:"What I cut.",b:["Direct ESC/POS Bluetooth printing. Printing today goes through Android’s print dialog, not a raw socket to one paired thermal model.","Normalized Customer and Product Catalog tables. Customer details live per bill and items are a JSON blob inside it, on purpose, for what this needs to do right now.","A direct WhatsApp Business API integration. Sharing is the system share sheet, which happens to include WhatsApp, not a dedicated business integration.","This started as a wider “AI companion” concept with notes, chat, reminders and mood tracking. All of that was dropped. What shipped is one job: speak a sale, get a trustworthy receipt."]},
    {h:"What I’d do differently.",b:["Fixing a line comes first. The EDIT button is on the receipt and the edit dialogs are written, but in this build they aren’t connected to the receipt screen yet, so a wrong line means saying it again.","I’d watch a real shopkeeper use it through a busy evening before calling any version final; everything so far has been my own testing.","Correction rate isn’t measured yet. The real test of a voice POS is how often a shopkeeper has to fix what it heard, and that needs real counters, not me talking to my own phone."]}
   ],
-  cta:["Want to try it on your phone?","It’s an Android APK, not on the Play Store. Ask and I’ll send it over.","mailto:ayushraj.design@gmail.com?subject=Parchi%20APK","Ask for the APK"],
+  cta:["Want to try it on your phone?","It’s an Android APK, not on the Play Store. Ask and I’ll send it over.","mailto:adi.workspace76865@gmail.com?subject=Parchi%20APK","Ask for the APK"],
   links:[["Code on GitHub","https://github.com/ayushraj-dev/Parchi","gh"],["Full doc on Notion","https://jealous-ghost-a9e.notion.site/Parchi-Product-Story-PRD-Current-State-Audit-3e77ea0aa244817babbccb5af5d35ab6?source=copy_link","no"]]
 };
 
