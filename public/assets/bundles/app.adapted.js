@@ -146,25 +146,37 @@ var P=[
 
 /* =================== Aditya: project list (content swapped) =================== */
 (function(){
+  var sync={id:"sync-drive",n:"Sync-Drive",t:"Android cloud sync engine",s:"#B4F6B8",tint:"#E0FBE1",
+    g:"An Android app that mirrors device folders to Google Drive with resumable chunked uploads, parallel workers, and integrity checks for reliable background sync.",
+    k:["Kotlin","Android","Google Drive API","WorkManager","Material Design"],
+    shots:["Folder\nmirror","Resumable\nuploads","Parallel\nworkers","Auto-sync","Integrity","Recovery"],
+    a:'<rect x="16" y="22" width="68" height="56" rx="8" fill="#131316" opacity=".9"/><path d="M30 52c2-10 18-12 22-2 10-2 14 8 8 14H30c-8 0-10-8 0-12z" fill="#B4F6B8"/><path d="M50 34v14" stroke="#FFD44E" stroke-width="4" stroke-linecap="round"/><path d="M44 42l6-8 6 8" stroke="#FFD44E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>',
+    st:[["The problem","Backing up folders reliably on mobile is hard: flaky networks, interruptions, duplicates, and battery constraints break naive sync."],["How I got there","Built a native Android sync engine focused on correctness and resilience — resumable chunked transfers, parallelism, and background scheduling."],["The key decision","Favor <b>integrity and recoverability</b>: SHA-256/byte-level checks, smart deduplication, and exponential-backoff retries so sync can resume safely."],["What it delivers","Autonomous, battery-aware folder mirroring to Google Drive with 4 parallel workers and WorkManager-driven auto-sync."]]};
   var job={id:"job-automation",n:"Automated Job Application System",t:"Full-stack browser automation",s:"#A9DEFF",tint:"#E0F3FF",
     g:"A full-stack Chrome extension that turns unstructured résumé PDFs into editable profiles and completes applications across job portals.",
     k:["React","Node.js","Express","MongoDB","JWT","Chrome Extension"],
     shots:["PDF\nimport","Profile\nreview","Autofill","APIs","Schema","Portal flow"],
     a:'<rect x="18" y="22" width="64" height="56" rx="8" fill="#131316" opacity=".88"/><rect x="28" y="34" width="28" height="4" rx="2" fill="#A9DEFF"/><rect x="28" y="44" width="40" height="3" rx="1.5" fill="#FAFAF8" opacity=".55"/><rect x="28" y="52" width="34" height="3" rx="1.5" fill="#FAFAF8" opacity=".35"/><path d="M30 66h40" stroke="#FFD44E" stroke-width="4" stroke-linecap="round"/>',
-    st:[["The problem","Job applications repeat the same data entry across portals. <b>Résumés are unstructured, but forms demand structure.</b>"],["How I got there","I built an extension + app stack to parse PDFs, let users review extracted fields, and drive autofill through secured APIs."],["The key decision","Keep profile data <b>editable and modular</b> (JWT-secured, scalable schema) so parsing errors never become permanent."],["What I'd ship next","Broader portal adapters and stronger field-mapping confidence signals for messy résumés."]]};
-  var gnn={id:"node-classifier",n:"Graph Node Classification",t:"Graph machine learning",s:"#B4F6B8",tint:"#E0FBE1",
+    st:[["The problem","Job applications repeat the same data entry across portals. <b>Résumés are unstructured, but forms demand structure.</b>"],["How I got there","Built an extension + app stack to parse PDFs, let users review extracted fields, and drive autofill through secured APIs."],["The key decision","Keep profile data <b>editable and modular</b> (JWT-secured, scalable schema) so parsing errors never become permanent."],["What I'd ship next","Broader portal adapters and stronger field-mapping confidence signals for messy résumés."]]};
+  var uni={id:"uniblogic",n:"UniBLOGic",t:"College community platform",s:"#E7BBFF",tint:"#F5E3FF",
+    g:"A scalable college community platform with a React frontend, Node.js/PostgreSQL backend, real-time WebSocket messaging, and a video-streaming service (in progress).",
+    k:["TypeScript","React","Node.js","PostgreSQL","WebSockets"],
+    shots:["Community","Realtime\nchat","Backend","Database","Video","Scale"],
+    a:'<rect x="16" y="24" width="68" height="50" rx="8" fill="#131316" opacity=".9"/><rect x="24" y="32" width="24" height="6" rx="3" fill="#E7BBFF"/><rect x="24" y="42" width="40" height="4" rx="2" fill="#FAFAF8" opacity=".5"/><rect x="24" y="50" width="32" height="4" rx="2" fill="#FAFAF8" opacity=".35"/><circle cx="68" cy="58" r="10" fill="#A9DEFF" opacity=".9"/><path d="M65 58l6 0M68 55l0 6" stroke="#131316" stroke-width="2" stroke-linecap="round"/>',
+    st:[["The problem","Campus communication and content are fragmented across channels, making community, updates, and collaboration harder than they need to be."],["How I got there","Designed a platform with a typed React frontend and a Node.js/PostgreSQL backend, adding real-time messaging over WebSockets."],["The key decision","Treat it as a <b>scalable system</b> (services, real-time channels, structured data) rather than a single monolithic app surface."],["Status","Core platform and messaging in place; video-streaming service and further scale work are in progress."]]};
+  var gnn={id:"node-classifier",n:"Graph Node Classification",t:"Graph machine learning",s:"#FFD44E",tint:"#FFF3C4",
     g:"A GCN-based node classifier with two-hop neighborhood aggregation and weighted loss for the imbalanced CORA citation dataset.",
     k:["Python","TensorFlow","Keras","GCN","CORA"],
     shots:["Graph\ninput","2-hop\nagg","GCN","Weighted\nloss","Eval","Results"],
-    a:'<circle cx="32" cy="38" r="8" fill="#131316" opacity=".88"/><circle cx="68" cy="34" r="8" fill="#131316" opacity=".88"/><circle cx="50" cy="66" r="8" fill="#131316" opacity=".88"/><path d="M38 42l8 18M62 38l-8 22M40 38h20" stroke="#131316" stroke-width="3" opacity=".5"/><circle cx="32" cy="38" r="3" fill="#B4F6B8"/><circle cx="68" cy="34" r="3" fill="#B4F6B8"/><circle cx="50" cy="66" r="3" fill="#FFD44E"/>',
+    a:'<circle cx="32" cy="38" r="8" fill="#131316" opacity=".88"/><circle cx="68" cy="34" r="8" fill="#131316" opacity=".88"/><circle cx="50" cy="66" r="8" fill="#131316" opacity=".88"/><path d="M38 42l8 18M62 38l-8 22M40 38h20" stroke="#131316" stroke-width="3" opacity=".5"/><circle cx="32" cy="38" r="3" fill="#FFD44E"/><circle cx="68" cy="34" r="3" fill="#FFD44E"/><circle cx="50" cy="66" r="3" fill="#B4F6B8"/>',
     st:[["The problem","Dense baselines underused citation structure, and class imbalance hurt convergence on CORA."],["How I got there","Implemented a GCN with <b>two-hop neighborhood aggregation</b> to capture richer graph context."],["The key decision","Pair representation learning with a <b>weighted loss</b> and balancing so minority classes learn reliably."],["Result","+15% accuracy over dense-network baselines on the classification task."]]};
-  var pyos={id:"pyos",n:"PyOS",t:"Systems simulation",s:"#FFD44E",tint:"#FFF3C4",
+  var pyos={id:"pyos",n:"PyOS",t:"Systems simulation",s:"#A9DEFF",tint:"#E0F3FF",
     g:"A modular terminal operating-system simulation with authentication, concurrent command execution, process scheduling, and an extensible shell.",
     k:["Python","CLI","Multithreading","OOP"],
     shots:["Auth","Shell","Scheduler","Processes","Modules","Commands"],
-    a:'<rect x="16" y="24" width="68" height="52" rx="6" fill="#131316" opacity=".9"/><rect x="22" y="32" width="10" height="3" rx="1.5" fill="#FFD44E"/><rect x="22" y="40" width="42" height="3" rx="1.5" fill="#FAFAF8" opacity=".5"/><rect x="22" y="48" width="30" height="3" rx="1.5" fill="#FAFAF8" opacity=".35"/><rect x="22" y="58" width="6" height="6" rx="1" fill="#B4F6B8"/>',
-    st:[["The problem","I wanted a concrete way to practice OS-shaped concerns: auth, scheduling, concurrency, and clean module boundaries."],["How I got there","Built a custom CLI with secure auth and multithreading, structured around object-oriented modules."],["The key decision","Make the shell <b>extensible</b> — new commands ship in fewer than 10 lines without touching core logic."],["What I'd explore next","Richer process primitives and persistence to push it closer to a teaching-grade simulation."]]};
-  P.length=0;P.push(job,gnn,pyos);
+    a:'<rect x="16" y="24" width="68" height="52" rx="6" fill="#131316" opacity=".9"/><rect x="22" y="32" width="10" height="3" rx="1.5" fill="#A9DEFF"/><rect x="22" y="40" width="42" height="3" rx="1.5" fill="#FAFAF8" opacity=".5"/><rect x="22" y="48" width="30" height="3" rx="1.5" fill="#FAFAF8" opacity=".35"/><rect x="22" y="58" width="6" height="6" rx="1" fill="#B4F6B8"/>',
+    st:[["The problem","A hands-on way to practice OS-shaped concerns: auth, scheduling, concurrency, and clean module boundaries."],["How I got there","Built a custom CLI with secure auth and multithreading, structured around object-oriented modules."],["The key decision","Make the shell <b>extensible</b> — new commands ship in fewer than 10 lines without touching core logic."],["What I'd explore next","Richer process primitives and persistence to push it closer to a teaching-grade simulation."]]};
+  P.length=0;P.push(sync,job,uni,gnn,pyos);
 })();
 
 var OFFER=[
@@ -3274,26 +3286,24 @@ function route(){
   if(key==="canvas"){requestAnimationFrame(fitAll)}
   /* tab titles, Aditya's wording. Google only indexes the home URL (hash routes), so these are for tabs,
      bookmarks and history */
-  var TT={home:"Aditya · UI/UX & Visual Designer",work:"Aditya's work",about:"About Aditya",
-    offer:"Aditya's services",canvas:"Aditya's canvas",gallery:"Aditya's gallery",lab:"Aditya's lab",contact:"Talk to Aditya",testimonial:"A few words for Aditya"},tt=TT[key];
-  if(key==="case"){var pc=P.filter(function(x){return x.id===parts[1]})[0];tt=(pc?pc.n+" · ":"")+"Aditya's work"}
+  var TT={home:"Aditya Kumar · AI & Backend Software Engineer",work:"Work · Aditya Kumar",about:"About · Aditya Kumar",
+    offer:"Services · Aditya Kumar",canvas:"Canvas · Aditya Kumar",gallery:"Gallery · Aditya Kumar",lab:"Lab · Aditya Kumar",contact:"Contact · Aditya Kumar",testimonial:"Testimonial · Aditya Kumar"},tt=TT[key];
+  if(key==="case"){var pc=P.filter(function(x){return x.id===parts[1]})[0];tt=(pc?pc.n+" · Aditya Kumar":"Work · Aditya Kumar")}
   if(key==="svc"){var so=(typeof OFFER!=="undefined"?OFFER:[]).filter(function(o){return o.id===parts[1]})[0];
-    tt=(so?so.h.replace(/&amp;/g,"&")+" · ":"")+"Aditya's services"}
+    tt=(so?so.h.replace(/&amp;/g,"&")+" · Aditya Kumar":"Services · Aditya Kumar")}
   document.title=tt||TT.home;
   /* per page description and canonical: each path is its own page to Google now (real URLs, see HASH()) */
-  var DD={home:"Aditya builds full-stack products, backend systems, and cloud infrastructure — from rough idea to production-ready code.",
-    work:"Full-stack products: Automated Job Application System, Graph Node Classification, and PyOS. Built with React, Node.js, Python, TensorFlow, and more.",
-    about:"Aditya · Full-Stack Developer & System Architect. Computer science background, shipping web products, APIs, and cloud infrastructure.",
-    offer:"Full-stack web development, API & backend systems, DevOps & cloud infrastructure, and technical consulting, by Aditya.",
-    canvas:"A working canvas of Aditya's projects, architecture diagrams, and system designs.",
-    gallery:"Browse Aditya's projects, technical architectures, and development work.",
-    lab:"Explore experiments, prototypes, and technical implementations by Aditya.",
-    contact:"Get in touch with Aditya, Full-Stack Developer & System Architect, or find him on GitHub and Instagram.",
-    alter:"Alter case study: a personal AI assistant for Android, designed and built by Aditya. Problem, personas, sketches, components, decisions.",
-    "track-it":"Track It case study: an expense tracker for Android with voice entry, designed and built by Aditya in Kotlin and Jetpack Compose.",
-    washio:"Washio case study: a laundry service app, designed end to end by Aditya as a full Figma prototype, down to every state.",
-    parchi:"Parchi case study: a voice billing app for Indian kirana stores, designed and built by Aditya in Kotlin and Jetpack Compose.",
-    hourbit:"Hourbit case study: a focus timer for Android with a pixel hourglass and a focus heatmap, designed and built by Aditya."},
+  var DD={home:"Aditya Kumar builds production AI, backend infrastructure, and reliable automation — systems engineered to scale, recover, and stay dependable.",
+    work:"Selected projects by Aditya Kumar: Sync-Drive, Automated Job Application System, UniBLOGic, Graph Node Classification, and PyOS.",
+    about:"Aditya Kumar is an AI & Backend Software Engineer (IIIT Gwalior) focused on production automation, backend systems, and reliable software.",
+    offer:"Engineering services by Aditya Kumar: backend & API engineering, AI automation, platform reliability, full-stack development, and applied ML.",
+    canvas:"Project and system explorations by Aditya Kumar.",
+    gallery:"Gallery.",
+    lab:"Experiments and prototypes.",
+    contact:"Contact Aditya Kumar — AI & Backend Software Engineer. Open to software engineering roles.",
+    "job-automation":"Automated Job Application System: a full-stack Chrome extension and API stack to parse résumés and automate job applications.",
+    "node-classifier":"Graph Node Classification: a GCN-based classifier on CORA with two-hop aggregation and weighted loss.",
+    pyos:"PyOS: a modular terminal operating-system simulation with auth, scheduling, and concurrency."},
     dd=key==="case"?DD[parts[1]]:key==="svc"?(tt+". "+DD.offer):DD[key],
     canon=""+(HASH().replace(/^#/,"")==="/"?"/":HASH().replace(/^#/,""));
   function meta(sel,attr,v){var m=document.head.querySelector(sel);if(m&&v)m.setAttribute(attr,v)}
@@ -4142,7 +4152,7 @@ if(/^#\/work\/parchi/.test(HASH())&&typeof route==="function")route();
   function pad(b){if(!b)return b;var q=String(b).split(",").map(Number);return [q[0],q[1]-60,q[2],q[3]+60].join(",")}
   function shell(title,w,home,homem){home=pad(home);homem=pad(homem);
     return '<div class="acv svp-acv" tabindex="0" data-home="'+home+'" data-homem="'+homem+'" aria-label="'+title+' canvas. Drag to move around, use the zoom buttons or ctrl and scroll to zoom.">'+
-    '<div class="acv-top"><span class="acv-file"><b>Services</b>'+title+'</span><span class="acv-tip">Pulled from the case studies</span></div>'+
+    '<div class="acv-top"><span class="acv-file"><b>Services</b>'+title+'</span><span class="acv-tip">Project highlights</span></div>'+
     '<div class="acv-world">'+w+'</div>'+
     '<div class="acv-bar"><button type="button" data-z="-" aria-label="Zoom out">&minus;</button><span class="acv-pct">100%</span><button type="button" data-z="+" aria-label="Zoom in">+</button><button type="button" data-z="fit" class="zfit">Fit all</button></div>'+
     '<p class="acv-hint"><span class="fine">Drag to move · scroll to zoom · click a frame</span><span class="touch">Tap to explore</span></p>'+
@@ -4153,43 +4163,44 @@ if(/^#\/work\/parchi/.test(HASH())&&typeof route==="function")route();
   function boards(title,list){fi=0;var w="",x=0,H=0;
     list.forEach(function(b){var im=window.CVBOARD?CVBOARD(b[0])[0]:null;if(!im)return;var bw=b[2],bh=Math.round(bw*im.h/im.w);
       w+=sec(b[1],x,0,bw+80,bh+130,null)+bf(im,"Board",x+40,90,bw);x+=bw+80+60;H=Math.max(H,bh+130)});
-    return w?shell(title,w,"0,0,"+(x-60)+","+H,"0,0,"+Math.min(x-60,900)+","+H).replace("Pulled from the case studies","Pulled from the canvas"):""}
+    return w?shell(title,w,"0,0,"+(x-60)+","+H,"0,0,"+Math.min(x-60,900)+","+H).replace("Project highlights","Pulled from the canvas"):""}
+  function engCanvas(title,groups){fi=0;var w="",x=0,H=420,W=240,G=28;
+    groups.forEach(function(g){var n=g.items.length,sw=Math.max(300,n*W+(n-1)*G+80);
+      w+=sec(g.t,x,0,sw,H,g.id);
+      g.items.forEach(function(it,i){var xx=x+40+i*(W+G);
+        w+='<div class="af svp-bd" style="left:'+xx+'px;top:90px;width:'+W+'px;height:240px;--i:'+(fi++)+'"><span class="an">'+it[0]+'</span><div class="tm-block" style="height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:18px"><b style="font:700 22px/1.2 var(--body)">'+it[0]+'</b><span style="margin-top:8px;font:400 14px/1.45 var(--body);color:var(--ink-soft)">'+it[1]+'</span></div></div>'});
+      x+=sw+60});
+    return shell(title,w,"0,0,"+Math.max(1,x-60)+","+H,"0,0,"+Math.min(Math.max(1,x-60),900)+","+H)}
   var CV={
-    graphic:function(){return boards("Graphic design",[["Carousel","Carousels & graphics",1100],["Asian Cadet Cup","Asian Cadet Cup 2025 · invitation",700]])},
-    brand:function(){return boards("Brand identity",[["VANORGO","VANORGO · identity & packaging",1100],["Asian Cadet Cup","Asian Cadet Cup 2025 · event logo",700]])},
-    uiux:function(){fi=0;var w="",W=170,G=24;
-      function grp(id,t,keys,x,y){var n=keys.length,sw=n*W+(n-1)*G+80;w+=sec(t,x,y,sw,500,id);
-        keys.forEach(function(k,i){var xx=x+40+i*(W+G);w+=k[0]==="pc"?pcf(k[1],k[2],xx,y+90,W):fr(k[0],k[1],xx,y+90,W)});return sw}
-      /* two screens per app: the home, and the one screen that is the product's point. The rest live in the case studies */
-      grp("alter","Alter",[["x_home","Home"],["x_addtray","Add anything"]],0,0);
-      grp("washio","Washio",[["wf_home","Home"],["wf_track","Tracking"]],504,0);
-      grp("track-it","Track It",[["t_home","Home"],["t_voice","Voice entry"]],1008,0);
-      grp("parchi","Parchi",[["pc","listen","Listening"],["pc","receipt","The receipt"]],1512,0);
-      grp("hourbit","Hourbit",[["hb_home","Home"],["hb_focus","The timer"]],2016,0);
-      return shell("UI/UX &amp; Product design",w,"0,0,2460,500","0,0,948,500")},
-    systems:function(){fi=0;var w="";
-      w+=sec("Alter · colour and component sets",0,0,1180,560,"alter")+sheet("alter",40,90)+fr("nav","Nav bar, 4 states",552,90,200)+fr("fab","Add button",772,90,200)+fr("inp","Capture card",772,200,200)+fr("cNote","Note widget",992,90,160);
-      w+=sec("Track It · colour and component sets",1260,0,1160,560,"track-it")+sheet("track-it",1300,90)+fr("tk_dock","Dock",1812,90,300)+fr("tk_menu","Menu",1812,203,150)+fr("tk_cal","Date picker",1982,203,200);
-      w+=sec("Washio · colour and component sets",0,640,1180,620,"washio")+sheet("washio",40,730)+fr("wk_bagbtn","View bag",552,730,180,"wsh-lt")+fr("wk_back","Delivery back / 4",752,730,200,"wsh-lt")+
-        fr("wk_kg","Stepper / kg",972,730,80,"wsh-lt")+fr("wk_pcs","Stepper / pcs",1072,730,70,"wsh-lt")+fr("wk_3d","3D assets",40,1040,240,"wsh-lt")+fr("wk_icons","Icons",320,1100,420,"wsh-lt");
-      w+=sec("Hourbit · colour",1260,640,560,460,"hourbit")+sheet("hourbit",1304,730);
-      w+=sec("Parchi · colour",1860,640,560,560,"parchi")+sheet("parchi",1904,730);
-      return shell("Design systems",w,"0,0,2420,1260","0,0,1180,560")},
-    motion:function(){fi=0;var w="",vh=Math.round(220*1004/480);
-      w+=sec("Washio · prototype and states",0,0,800,90+vh+40,"washio")+
-        '<div class="af svp-vid" data-n="Home, playing" data-wh="Prototype recording" style="left:40px;top:90px;width:220px;height:'+vh+'px;--i:'+(fi++)+'"><span class="an">Home, playing</span>'+vid()+'</div>'+
-        fr("wk_bagbtn","View bag: default, pressed",300,90,200,"wsh-lt")+fr("wk_back","Delivery back: 4 states",540,90,220,"wsh-lt");
-      w+=sec("Track It · swipe, voice",880,0,520,90+vh+40,"track-it")+fr("t_swipe","Swipe to act",920,90,200)+fr("t_voice","Voice",1160,90,200);
-      var y2=90+vh+120;
-      w+=sec("Alter · the add button",0,y2,580,560,"alter")+fr("fab","Add button",40,y2+90,240)+fr("x_addtray","The tray, open",320,y2+90,200);
-      w+=sec("Hourbit · run, pause",660,y2,510,560,"hourbit")+fr("hb_homerun","Session running",700,y2+90,200)+fr("hb_paused","Paused",930,y2+90,200);
-      w+=sec("Parchi · voice to receipt",1250,y2,510,560,"parchi")+pcf("listen","Listening",1290,y2+90,200)+pcf("receipt","The receipt",1520,y2+90,200);
-      return shell("Micro-interactions &amp; motion",w,"0,0,1760,"+(y2+560),"0,0,800,"+(90+vh+40))}};
+    backend:function(){return engCanvas("Backend &amp; API engineering",[
+      {id:"apis",t:"APIs & services",items:[["REST APIs","Scalable, well-structured endpoints"],["Data models","Schemas designed for change"],["Reliability","Validation, auth, and monitoring"]]},
+      {id:"prod",t:"Production delivery",items:[["CI/CD","Pipelines and safe releases"],["Observability","Logs, metrics, debugging signals"],["Performance","Efficient queries and services"]]}
+    ])},
+    ai:function(){return engCanvas("AI automation &amp; agents",[
+      {id:"agents",t:"Agent workflows",items:[["Automation","Reduce manual operational toil"],["RCA","Root-cause analysis & feedback loops"],["Human-in-the-loop","Guardrails and review where needed"]]},
+      {id:"quality",t:"Operational quality",items:[["Integrations","Connect tools and data sources"],["Evaluation","Measure outcomes and failures"],["Iteration","Improve with real signals"]]}
+    ])},
+    platform:function(){return engCanvas("Platform &amp; reliability",[
+      {id:"reliability",t:"Reliability",items:[["Incidents","Faster detection and response"],["Queues & async","Resilient background processing"],["Runbooks","Clear operational playbooks"]]},
+      {id:"ops",t:"Operations",items:[["Dashboards","Visibility into system health"],["Alerting","Actionable signals"],["Stability","Systems that recover gracefully"]]}
+    ])},
+    fullstack:function(){return engCanvas("Full-stack products",[
+      {id:"frontend",t:"Product interfaces",items:[["React/TypeScript","Clear, maintainable UI"],["Integration","APIs, auth, and data flows"],["UX quality","Responsive and accessible"]]},
+      {id:"backend",t:"End-to-end delivery",items:[["Node.js services","Robust application backends"],["Databases","MongoDB/MySQL modeling"],["Shipping","From idea to working product"]]}
+    ])},
+    ml:function(){return engCanvas("Data &amp; ML experimentation",[
+      {id:"ml",t:"Modeling",items:[["GCN / ML","Graph and supervised learning"],["TensorFlow/Keras","Experimentation and training"],["Evaluation","Measure what matters"]]},
+      {id:"research",t:"Research",items:[["Backtesting","Quantitative strategy evaluation"],["Analysis","Data-driven iteration"],["Rigor","Reproducible experiments"]]}
+    ])}
+  };
 
   var SEEN={
-    uiux:[["alter","Alter","AI companion. Paper sketches to Figma component sets to shipped Kotlin."],["track-it","Track It","Expense tracker. Voice, receipt scanning, a widget."],["washio","Washio","Laundry app. Research, 60+ Figma iterations, a clickable prototype."],["hourbit","Hourbit","Focus timer. An hourglass, a year heatmap, a widget."],["parchi","Parchi","Voice billing for a kirana counter."]],
-    systems:[["alter","Alter","Pitch black, one warm accent, a component set for every piece."],["track-it","Track It","Dock, menu, date picker, widget, as Figma sets."],["washio","Washio","Blue for care, a 3D asset family, steppers and states."],["hourbit","Hourbit","Five themes read from the Compose source."],["parchi","Parchi","Thermal paper white and one purple."]],
-    motion:[["washio","Washio","Fill the bag, pick a slot, watch the order move. Rebuilt with the prototype's motion."],["alter","Alter","The pill nav, the add button that unfolds, a task that breaks into dust."],["track-it","Track It","The dock and add sheet, swipe to act, the voice parser."],["hourbit","Hourbit","Sand physics and the 520ms flip, the heatmap, the themes."],["parchi","Parchi","The record button, search, the offline parser running live."]]};
+    backend:[["job-automation","Automated Job Application System","Full-stack automation with parsing, secured APIs, and browser workflows."],["uniblogic","UniBLOGic","Typed frontend + Node.js/PostgreSQL backend with real-time messaging."]],
+    ai:[["job-automation","Automated Job Application System","Practical automation turning unstructured inputs into reliable actions."],["node-classifier","Graph Node Classification","Applied ML experimentation with measurable evaluation."]],
+    platform:[["sync-drive","Sync-Drive","Resilient Android sync with background scheduling, retries, and integrity checks."],["uniblogic","UniBLOGic","Real-time WebSocket communication and service-oriented platform work."]],
+    fullstack:[["job-automation","Automated Job Application System","React/Node/Express/MongoDB stack with extension-driven workflows."],["uniblogic","UniBLOGic","React, Node.js, PostgreSQL, and real-time features."]],
+    ml:[["node-classifier","Graph Node Classification","GCN on CORA with two-hop aggregation and weighted loss (+15% over baselines)."]]
+  };
 
   function renderSvc(id){var o=null,k=0;for(var i=0;i<OFFER.length;i++)if(OFFER[i].id===id){o=OFFER[i];k=i}
     if(!o)return false;
