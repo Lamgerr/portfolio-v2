@@ -1,0 +1,74 @@
+{
+  "entries": [
+    {
+      "slug": "sync-drive-resumable-uploads",
+      "title": "Resumable chunked uploads",
+      "category": "Components",
+      "description": "Reliability pattern behind Sync-Drive: chunked, resumable uploads with retries and integrity checks for flaky networks.",
+      "tool": "Kotlin \u00b7 Android \u00b7 Google Drive API",
+      "cover": "/assets/media/9bbd88e2114f552a.webp",
+      "alt": "Sync-Drive sync flow",
+      "video": "",
+      "link": "https://github.com/adityakumar027/Sync-Drive",
+      "repositoryUrl": "https://github.com/adityakumar027/Sync-Drive",
+      "instructions": "",
+      "published": true
+    },
+    {
+      "slug": "job-autofill-pipeline",
+      "title": "R\u00e9sum\u00e9 \u2192 profile \u2192 autofill",
+      "category": "Interactions",
+      "description": "End-to-end flow: parse unstructured r\u00e9sum\u00e9 PDFs, review extracted fields, and autofill applications through secured APIs.",
+      "tool": "React \u00b7 Node.js \u00b7 Chrome Extension",
+      "cover": "/assets/media/74c2845bde4a486e.webp",
+      "alt": "Job application automation flow",
+      "video": "",
+      "link": "https://github.com/adityakumar027/Automated-Job-Application-System",
+      "repositoryUrl": "https://github.com/adityakumar027/Automated-Job-Application-System",
+      "instructions": "",
+      "published": true
+    },
+    {
+      "slug": "uniblogic-realtime",
+      "title": "Real-time community messaging",
+      "category": "Websites",
+      "description": "Typed React frontend and Node.js/PostgreSQL backend with WebSocket messaging for a scalable college community platform.",
+      "tool": "TypeScript \u00b7 React \u00b7 Node.js \u00b7 PostgreSQL",
+      "cover": "/assets/media/2cb2afc8c2c5b8c5.webp",
+      "alt": "UniBLOGic platform",
+      "video": "",
+      "link": "https://github.com/adityakumar027/UniBLOGic-Scalable-College-Community-Platform",
+      "repositoryUrl": "https://github.com/adityakumar027/UniBLOGic-Scalable-College-Community-Platform",
+      "instructions": "",
+      "published": true
+    },
+    {
+      "slug": "gcn-two-hop",
+      "title": "Two-hop GCN on CORA",
+      "category": "Skills",
+      "description": "Graph node classification with two-hop neighborhood aggregation and weighted loss to handle class imbalance (+15% over dense baselines).",
+      "tool": "Python \u00b7 TensorFlow \u00b7 Keras",
+      "cover": "/assets/media/9939692f50a6f651.webp",
+      "alt": "Graph node classification experiment",
+      "video": "",
+      "link": "https://github.com/adityakumar027/node-classifier",
+      "repositoryUrl": "https://github.com/adityakumar027/node-classifier",
+      "instructions": "Key ideas: aggregate 2-hop neighbors for richer context, and use a weighted loss to improve convergence on imbalanced CORA classes. Evaluate against dense baselines with consistent splits.",
+      "published": true
+    },
+    {
+      "slug": "pyos-extensible-shell",
+      "title": "Extensible CLI shell",
+      "category": "Templates",
+      "description": "PyOS pattern: modular command registration so new shell commands can be added in under 10 lines without touching core logic.",
+      "tool": "Python \u00b7 OOP \u00b7 Multithreading",
+      "cover": "/assets/media/0ddbd085e1f42fd5.webp",
+      "alt": "PyOS terminal shell",
+      "video": "",
+      "link": "https://github.com/adityakumar027/PyOS",
+      "repositoryUrl": "https://github.com/adityakumar027/PyOS",
+      "instructions": "Design commands as small modules behind a common interface; keep auth, scheduling, and execution concerns separated so the shell stays extensible.",
+      "published": true
+    }
+  ]
+}

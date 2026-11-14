@@ -1,0 +1,100 @@
+{
+  "entries": [
+    {
+      "slug": "sync-drive",
+      "title": "Sync-Drive",
+      "description": "Android app that mirrors device folders to Google Drive with resumable chunked uploads, 4 parallel workers, retries, deduplication, and integrity checks.",
+      "published": true,
+      "category": "Apps",
+      "categories": [
+        "Apps"
+      ],
+      "presentation": "single",
+      "slides": [
+        {
+          "image": "/assets/media/9bbd88e2114f552a.webp",
+          "alt": "Sync-Drive project preview"
+        }
+      ],
+      "siteUrl": "https://github.com/adityakumar027/Sync-Drive",
+      "resourceUrl": "https://github.com/adityakumar027/Sync-Drive"
+    },
+    {
+      "slug": "job-automation",
+      "title": "Automated Job Application System",
+      "description": "Chrome extension and full-stack app that turns unstructured r\u00e9sum\u00e9 PDFs into editable profiles and automates form filling across portals.",
+      "published": true,
+      "category": "Websites",
+      "categories": [
+        "Websites",
+        "Apps"
+      ],
+      "presentation": "single",
+      "slides": [
+        {
+          "image": "/assets/media/74c2845bde4a486e.webp",
+          "alt": "Automated Job Application System preview"
+        }
+      ],
+      "siteUrl": "https://github.com/adityakumar027/Automated-Job-Application-System",
+      "resourceUrl": "https://github.com/adityakumar027/Automated-Job-Application-System"
+    },
+    {
+      "slug": "uniblogic",
+      "title": "UniBLOGic",
+      "description": "College community platform with a React frontend, Node.js/PostgreSQL backend, real-time WebSocket messaging, and video-streaming services (in progress).",
+      "published": true,
+      "category": "Websites",
+      "categories": [
+        "Websites"
+      ],
+      "presentation": "single",
+      "slides": [
+        {
+          "image": "/assets/media/2cb2afc8c2c5b8c5.webp",
+          "alt": "UniBLOGic platform preview"
+        }
+      ],
+      "siteUrl": "https://github.com/adityakumar027/UniBLOGic-Scalable-College-Community-Platform",
+      "resourceUrl": "https://github.com/adityakumar027/UniBLOGic-Scalable-College-Community-Platform"
+    },
+    {
+      "slug": "node-classifier",
+      "title": "Graph Node Classification",
+      "description": "GCN-based node classifier on CORA with two-hop neighborhood aggregation and weighted loss, achieving +15% accuracy over dense baselines.",
+      "published": true,
+      "category": "Graphics",
+      "categories": [
+        "Graphics"
+      ],
+      "presentation": "single",
+      "slides": [
+        {
+          "image": "/assets/media/9939692f50a6f651.webp",
+          "alt": "Graph Node Classification visualization"
+        }
+      ],
+      "siteUrl": "https://github.com/adityakumar027/node-classifier",
+      "resourceUrl": "https://github.com/adityakumar027/node-classifier"
+    },
+    {
+      "slug": "pyos",
+      "title": "PyOS",
+      "description": "Modular terminal operating-system simulation with authentication, scheduling, multithreading, and an extensible shell.",
+      "published": true,
+      "category": "Apps",
+      "categories": [
+        "Apps"
+      ],
+      "presentation": "single",
+      "slides": [
+        {
+          "image": "/assets/media/0ddbd085e1f42fd5.webp",
+          "alt": "PyOS terminal simulation preview"
+        }
+      ],
+      "siteUrl": "https://github.com/adityakumar027/PyOS",
+      "resourceUrl": "https://github.com/adityakumar027/PyOS"
+    }
+  ]
+}
