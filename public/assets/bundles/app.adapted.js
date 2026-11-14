@@ -427,8 +427,8 @@ var storyUnits=Array.prototype.slice.call(document.querySelectorAll("#storyText 
   var vid=null,filled=false;
   function fill(){if(filled)return;filled=true;
     els.forEach(function(d,k){var p=PCS[k],box=d.querySelector(p.t==="site"?".cd-shot":".cd-card"),lab=d.querySelector(".cd-lab");
-      try{if(p.src==="vid"){box.innerHTML='<video muted loop playsinline preload="none"><source src="'+ALT.wv_home_w.u+'" type="video/webm"><source src="'+ALT.wv_home.u+'" type="video/mp4"></video>';
-          vid=box.firstChild;vid.addEventListener("loadedmetadata",function(){lab.textContent=vid.videoWidth+" × "+vid.videoHeight})}
+      try{if(p.src==="vid"){var _v=ALT.wf_home;box.innerHTML='<img alt="" draggable="false" src="'+_v.u+'">';
+          lab.textContent=_v.w+" × "+_v.h}
         else{var a=ALT[p.src];box.innerHTML='<img alt="" draggable="false" src="'+a.u+'">';if(!p.lab&&a.w)lab.textContent=a.w+" × "+a.h}}catch(e){}})}
   setTimeout(fill,0);
   var open=false,placed=0,shut=0,phone=false;
@@ -2785,7 +2785,7 @@ window.wshWire=wshWire;
 
 /* ---- the Washio card: its real home screen, playing. Book Now opens the vendor page ---- */
 (function(){
-  var cv='<span class="ccv wsh-ccv"><span class="cph"><video class="c1" muted loop playsinline preload="metadata" aria-hidden="true"><source src="'+ALT.wv_home_w.u+'" type="video/webm"><source src="'+ALT.wv_home.u+'" type="video/mp4"></video><img class="c2" alt="" draggable="false" src="'+ALT.wf_vendor.u+'">'+
+  var cv='<span class="ccv wsh-ccv"><span class="cph"><img class="c1" alt="" draggable="false" src="'+ALT.wf_home.u+'"><img class="c2" alt="" draggable="false" src="'+ALT.wf_vendor.u+'">'+
     '<span class="trk-hot wsh-book" role="button" tabindex="0" aria-label="Book now"></span><span class="trk-hot wsh-bk" role="button" tabindex="-1" aria-label="Back to home"></span></span></span>';
   Array.prototype.forEach.call(document.querySelectorAll('#deck .card[href="/work/washio"] .card-art,#wgrid .wcard[href="/work/washio"] .top'),function(n){n.innerHTML=cv;n.classList.add("hascv");
     var c=n.querySelector(".ccv"),a=n.querySelector(".wsh-book"),b=n.querySelector(".wsh-bk");
@@ -4105,7 +4105,7 @@ if(/^#\/work\/parchi/.test(HASH())&&typeof route==="function")route();
   var PJ={alter:["Alter","#FFD44E"],"track-it":["Track It","#B4F6B8"],washio:["Washio","#A9DEFF"],hourbit:["Hourbit","#98FF53"],parchi:["Parchi","#E7BBFF"]};
   function img(k,alt){var a=ALT[k];return '<img alt="'+alt+'" draggable="false" src="'+a.u+'">'}
   function sysOf(id){var c=CS[id];if(!c)return null;for(var i=0;i<c.secs.length;i++)if(c.secs[i].sys)return c.secs[i].sys;return null}
-  function vid(){return '<video muted loop playsinline preload="metadata" aria-hidden="true"><source src="'+ALT.wv_home_w.u+'" type="video/webm"><source src="'+ALT.wv_home.u+'" type="video/mp4"></video>'}
+  function vid(){return '<img alt="" draggable="false" src="'+ALT.wf_home.u+'">'}
 
   /* graphic design posts for the hover preview (560px WebP, ~190KB for all five) */
   var GFXP=[["/assets/media/c3383f9f36caedc7.webp", "Nerdy Designer \u00b7 brand post"], ["/assets/media/cce965642baeee47.webp", "Bisleri \u00b7 carousel"], ["/assets/media/e7aabd0462fd8758.webp", "Invisible structures \u00b7 carousel"], ["/assets/media/8b0e4d671f33f67f.webp", "Kinley \u00b7 carousel"], ["/assets/media/f7bf1e04323c67a9.webp", "Alter \u00b7 launch visual"]];
