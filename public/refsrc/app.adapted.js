@@ -867,7 +867,7 @@ function render(){
     var own=hv[i]>0||i===hotI;if(lastOwn[i]!==own){lastOwn[i]=own;cards[i].classList.toggle("own",own)}
     var zi=String(i===hotI&&hv[i]>.01?20:hv[i]>.01?19:(i+1));if(lastZ[i]!==zi){lastZ[i]=zi;cards[i].style.zIndex=zi}
     /* everything else leaves the stage, so the card sits alone on the page of text */
-    var op=vf>0?(1-vf*(1-(i===hotI?1:hv[i]))).toFixed(3):(innerWidth<=600&&p1<.2&&p2<=0?(p1/.2).toFixed(3):"");if(lastOp[i]!==op){lastOp[i]=op;cards[i].style.opacity=op}
+    var op;if(vf>0){var base=(1-vf*(1-(i===hotI?1:hv[i])));if(i!==hotI)base=Math.max(0.32,base);op=base.toFixed(3)}else op=(innerWidth<=600&&p1<.2&&p2<=0?(p1/.2).toFixed(3):"");if(lastOp[i]!==op){lastOp[i]=op;cards[i].style.opacity=op}
     if(sda){
       /* the two ends of the flight, both constants in deck space: the seat (as the fall left it) and the row as it
          will sit once the deck has let go of the screen (page position of the slot minus where the deck unpins) */
