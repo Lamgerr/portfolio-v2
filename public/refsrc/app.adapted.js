@@ -2033,7 +2033,7 @@ function reveal(){
     }
     async function loadEntries(){if(loading)return;loading=true;more.hidden=true;more.disabled=true;message.textContent="Loading designs…";
       async function get(url,ms){var ctl=new AbortController(),t=setTimeout(function(){ctl.abort()},ms);try{var r=await fetch(url,{cache:"no-cache",signal:ctl.signal});if(!r.ok)throw Error("Gallery request failed");var data=await r.json();if(!Array.isArray(data.entries))throw Error("Invalid gallery");return data}finally{clearTimeout(t)}}
-      try{var data;try{data=await get(CMS_FEED,6000)}catch(e){data=await get("/gallery.json",15000)}
+      try{var data;try{data=await get(CMS_FEED,8000)}catch(e){data=await get(CMS_REMOTE,6000)}
         var seen=new Set();entries=data.entries.map(normalize).filter(function(d){if(!d||seen.has(d.slug))return false;seen.add(d.slug);return true});loaded=true;loading=false;filterBar();render(true);await linked();
       }catch(e){loading=false;message.textContent="The gallery could not load. Please try again.";more.textContent="Try again";more.hidden=false}finally{more.disabled=false}
     }
@@ -2041,7 +2041,7 @@ function reveal(){
     function filterBar(){var used=["All"].concat(KINDS.filter(function(k){return entries.some(function(d){return d.categories.indexOf(k)>=0})}));if(used.indexOf(category)<0)category="All";filters.replaceChildren();
       used.forEach(function(c){var b=el("button","",c);b.type="button";b.setAttribute("aria-pressed",String(c===category));b.onclick=function(){category=c;Array.from(filters.children).forEach(function(n){n.setAttribute("aria-pressed",String(n===b))});render(true)};filters.appendChild(b)})}
     async function sync(){var on=/^#\/gallery(?:\/admin)?$/.test(HASH())||HASH()==="#/canvas";if(!on){if(dialog.open)dismiss(false);pushed=false;return}
-      if(location.pathname==="/gallery/admin"){location.assign("https://cms.ayushraj.dev/admin");return}
+      if(location.pathname==="/gallery/admin"){location.replace("/gallery");return}
       if(!loaded)await loadEntries();else await linked();
     }
     document.getElementById("galleryClose").onclick=function(){dismiss(true)};
@@ -4520,9 +4520,9 @@ if(/^#\/work\/parchi/.test(HASH())&&typeof route==="function")route();
   var root=document.getElementById('v-lab'),rows=document.getElementById('labRows'),message=document.getElementById('labMessage'),retry=document.getElementById('labRetry');
   var dialog=document.getElementById('labDialog'),close=document.getElementById('labClose'),media=document.getElementById('labMedia');
   var kinds=['Interactions','Components','Templates','Websites','Prompts','Skills'],entries=[],loaded=false,loading=false,current=null,opener=null,pushed=false;
-  var calm=matchMedia('(prefers-reduced-motion:reduce)'),feed='https://cms.ayushraj.dev/api/lab/feed';
+  var calm=matchMedia('(prefers-reduced-motion:reduce)'),feed='/lab.json';
   function el(tag,cls,text){var n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n}
-  function url(s){try{var u=new URL(s);return u.protocol==='https:'?u.href:''}catch(e){return ''}}
+  function url(s){if(!s)return '';try{var u=new URL(s,location.origin);return /^https?:$/.test(u.protocol)?u.href:''}catch(e){return ''}}
   function normalize(d){if(!d||d.published!==true||!d.slug||!d.title||kinds.indexOf(d.category)<0||!url(d.cover))return null;
     return {slug:String(d.slug),title:String(d.title),category:d.category,description:String(d.description||''),tool:String(d.tool||''),cover:url(d.cover),alt:String(d.alt||d.title),video:url(d.video),link:url(d.link),repository:url(d.repositoryUrl),instructions:String(d.instructions||'')}}
   function onLab(){return HASH()==='#/lab'}
