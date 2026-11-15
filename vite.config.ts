@@ -6,7 +6,7 @@ export default defineConfig(async () => {
   // vinext "Other platforms (via Nitro)" integration. Cloudflare keeps its
   // native plugin path for `vinext dev` / `vinext deploy`.
   if (process.env.VERCEL) {
-    const { nitro } = await import("nitro/vite");
+    const { nitro } = await import(/* @vite-ignore */ "nitro/vite");
     return { plugins: [vinext(), nitro()] };
   }
 
